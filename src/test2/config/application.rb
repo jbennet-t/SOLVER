@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Test2
   class Application < Rails::Application
+    config.web_console.whitelisted_ips = '159.91.91.160'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
