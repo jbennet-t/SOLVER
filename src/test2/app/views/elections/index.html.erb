@@ -1,0 +1,30 @@
+<h1>List of Elections</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+
+  <%= form_with(url: "/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+  <% end %>
+
+  <% @elections.each do |election| %>
+    <tr>
+      <td><%= election.title %></td>
+      <td><%= election.text %></td>
+      <td><%= link_to 'Show', election_path(election) %></td>
+      <td><%= link_to 'Edit', edit_election_path(election) %></td>
+      <td><%= link_to 'Delete', election_path(election),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'Back to Main Page', main_page_index_path %>

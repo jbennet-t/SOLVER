@@ -1,0 +1,12 @@
+<p>
+  <strong>Title:</strong>
+  <%= @election.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @election.text %>
+</p>
+
+<%= link_to 'Edit', edit_election_path(@election) %>
+<%= link_to 'Back to Elections Page', elections_path %>
