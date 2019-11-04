@@ -1,5 +1,4 @@
 # SOLVER
-Student OnLine Voter Engagement and Registration
 The goal of this project is to get students registered to vote, as well as informing people about upcoming elections, 
 the politicians who are running, and what their stances are. A large percentage of the population fails to go out and 
 vote for most elections, meaning that their voices are unheard. People are more likely to go out and vote if they are 
