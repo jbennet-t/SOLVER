@@ -35,5 +35,7 @@
 
 <br><br><br>
 
+<%if current_user && current_user.admin%>
 <%= link_to 'Edit', edit_election_path(@election) %>
+<% end %>
 <%= link_to 'Back to Elections Page', elections_path %>

@@ -27,6 +27,7 @@
   <%= @candidates.attached_election %>
 </p>
 
-
+<%if current_user && current_user.admin%>
 <%= link_to 'Edit', edit_candidate_path(@candidates) %>
-<%= link_to 'Back to candidates Page', candidates_path %>
+  <% end %>
+<%= link_to 'Back to Candidates Page', candidates_path %>
