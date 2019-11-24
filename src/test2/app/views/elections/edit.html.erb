@@ -1,3 +1,13 @@
+<!--
+// Project name: SOLVER
+// Description: Create webapp that encourages students to vote and register to vote. Presents information
+    about how to register and vote, and list of upcoming elections and candidates for those elections.
+// Filename: elections\edit.html.erb
+// Description: page to create edit election details
+// Last modified on: 11/24/2019
+-->
+
+
 <h1>Edit Election</h1>
 
 <%= form_with(model: @election, local: true) do |form| %>
@@ -17,13 +27,24 @@
   <% end %>
 
   <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :election_title %><br>
+    <%= form.text_field :election_title %>
+    <%= sanitize @election.election_title %>
   </p>
 
   <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
+    <%= form.label :election_date %><br>
+    <%= form.date_select :election_date %>
+  </p>
+
+  <p>
+    <%= form.label :election_type %><br>
+    <%= form.text_field :election_type %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
   </p>
 
   <p>

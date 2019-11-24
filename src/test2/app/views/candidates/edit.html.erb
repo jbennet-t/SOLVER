@@ -1,0 +1,55 @@
+<!--
+// Project name: SOLVER
+// Description: Create webapp that encourages students to vote and register to vote. Presents information
+    about how to register and vote, and list of upcoming elections and candidates for those elections.
+// Filename: candidates\edit.html.erb
+// Description: page to edit election details
+// Last modified on: 11/24/2019
+-->
+
+
+<h1>Edit Candidate</h1>
+
+<%= form_with(model: @candidates, local: true) do |form| %>
+
+  <% if @candidates.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@candidates.errors.count, "error") %> prohibited
+        this candidate from being saved:
+      </h2>
+      <ul>
+        <% @candidates.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :political_affiliation%><br>
+    <%= form.text_field :political_affiliation %>
+  </p>
+
+  <p>
+    <%= form.label :info %><br>
+    <%= form.text_area :info %>
+  </p>
+
+  <p>
+    <%= form.label :election%><br>
+    <%= form.collection_select :attached_election, Election.all, :id, :election_title%>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back to Election', elections_path %>

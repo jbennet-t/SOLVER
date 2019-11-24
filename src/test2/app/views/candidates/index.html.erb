@@ -1,0 +1,53 @@
+<!--
+// Project name: SOLVER
+// Description: Create webapp that encourages students to vote and register to vote. Presents information
+    about how to register and vote, and list of upcoming elections and candidates for those elections.
+// Filename: candidates\index.html.erb
+// Description:  Presents list of candidates after they've been created, and ability to edit and delete if user is admin
+// Last modified on: 11/24/2019
+-->
+
+
+<h1>List of Candiates</h1>
+
+<br>
+
+<!-- Search form -->
+<form class="form-inline">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-70" type="text" placeholder="Search"
+         aria-label="Search">
+</form>
+
+<br>
+
+<table class = "table table-striped">
+  <tr>
+    <th>Candidate</th>
+    <th>Affiliation</th>
+    <th>Info</th>
+  </tr>
+
+
+  <% @candidates.each do |candidate| %>
+    <tr>
+      <td><%= candidate.name %></td>
+      <td><%= candidate.political_affiliation%></td>
+      <td><%= candidate.info %></td>
+      <td><%= link_to 'Show', candidate_path(candidate) %></td>
+      <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
+      <td><%= link_to 'Delete', candidate_path(candidate),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to 'Add candidates', new_candidate_path %>
+</p>
+
+
+<p>
+  <%= link_to 'Back to Main Page', main_page_index_path %>
+</p>

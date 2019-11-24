@@ -1,12 +1,39 @@
+<!--
+// Project name: SOLVER
+// Description: Create webapp that encourages students to vote and register to vote. Presents information
+    about how to register and vote, and list of upcoming elections and candidates for those elections.
+// Filename: elections\show.html.erb
+// Description: page to show election details
+// Last modified on: 11/24/2019
+-->
+
+
 <p>
-  <strong>Title:</strong>
-  <%= @election.title %>
+  <strong>Election Title:</strong>
+  <%= @election.election_title %>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @election.text %>
+  <strong>Election Date:</strong>
+  <%= @election.election_date %>
 </p>
+
+<p>
+  <strong>Election Type:</strong>
+  <%= @election.election_type %>
+</p>
+
+<p>
+  <strong>Candidates:</strong>
+  <%= @election.candidates_id %>
+</p>
+
+<p>
+  <strong>Election Description:</strong>
+  <%= @election.description %>
+</p>
+
+<br><br><br>
 
 <%= link_to 'Edit', edit_election_path(@election) %>
 <%= link_to 'Back to Elections Page', elections_path %>

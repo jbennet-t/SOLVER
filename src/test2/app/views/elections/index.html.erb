@@ -1,30 +1,64 @@
+<!--
+// Project name: SOLVER
+// Description: Create webapp that encourages students to vote and register to vote. Presents information
+    about how to register and vote, and list of upcoming elections and candidates for those elections.
+// Filename: elections\index.html.erb
+// Description: Presents list of elections after they've been created, and ability to edit and delete if user is admin
+// Last modified on: 11/24/2019
+-->
+
+
+  <title>Election Page</title>
+
+
+
 <h1>List of Elections</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
 
-  <%= form_with(url: "/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-  <% end %>
+  <br>
+
+  <!-- Search form -->
+  <form class="form-inline">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input class="form-control form-control-sm ml-3 w-70" type="text" placeholder="Search"
+           aria-label="Search">
+  </form>
+
+  <br>
+
+
+
+  <table class = "table table-striped">
+  <tr>
+    <th>Election Name</th>
+    <th>Type</th>
+    <th>Date</th>
+    <th>Candidates</th>
+
+  </tr>
 
   <% @elections.each do |election| %>
     <tr>
-      <td><%= election.title %></td>
-      <td><%= election.text %></td>
+      <td><%= election.election_title %></td>
+      <td><%= election.election_type %></td>
+      <td><%= election.election_date %></td>
+      <td><%= election.candidates_id %></td>
       <td><%= link_to 'Show', election_path(election) %></td>
+      <%if current_user && current_user.admin%>
       <td><%= link_to 'Edit', edit_election_path(election) %></td>
       <td><%= link_to 'Delete', election_path(election),
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
     </tr>
   <% end %>
 </table>
 
+<p>
+  <%= link_to 'Add election', new_election_path %>
+</p>
 
-<%= link_to 'Back to Main Page', main_page_index_path %>
+
+<p>
+  <%= link_to 'Back to Main Page', main_page_index_path %>
+</p>

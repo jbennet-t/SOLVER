@@ -1,82 +1,44 @@
-<!DOCTYPE HTML>
+<!--
+// Project name: SOLVER
+// Description: Create webapp that encourages students to vote and register to vote. Presents information
+    about how to register and vote, and list of upcoming elections and candidates for those elections.
+// Filename: main_page\index.html.erb
+// Description: main/home page of webapp
+// Last modified on: 11/24/2019
+-->
+
+
+
 <html>
+  <title>Main Page</title>
 
-<head>
-  <title>CELR Volunteering</title>
-  <meta name="viewport" content="initial-scale=1">
+<h1>SOLVER Welcome Page</h1>
 
-  <!-- CELR Navbar CSS -->
-  <link href="application.css" media="screen" rel="stylesheet" type="text/css"/>
-
-  <!-- CELR Welcome Page CSS -->
-  <link href="welcome.css" media="screen" rel="stylesheet" type="text/css"/>
-
-  <!-- Google Fonts: OpenSans -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-
-  <!-- Font Awesome Images -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
-  <!--  Window Scroll for Chevron-->
-  <script type="text/javascript">
-      function scrollToContainer() {
-          document.querySelector(".container2").scrollIntoView({
-              behavior: 'smooth'
-          });
-      }
-
-  </script>
-</head>
-
-<body>
-
-<div class="container">
-  <div class="background"></div>
-
-  <h1 class="giant">SOLVER</h1>
-  <h4>Student On-Line Voting Engagement and Registration</h4>
-  <ul class="menu">
-
-
-      <div class="menu-buttons button1">
-        <a class="content"><%= link_to "Election List", elections_path %></a>
-      </div>
-      <div class="menu-buttons button2">
-        <a class="content"><%= link_to "How To Register", elections_path %></a>
-      </div>
-      <div class="menu-buttons button2">
-        <a class="content"><%= link_to "About", elections_path %></a>
-      </div>
-
-
-
-  </ul>
-
-  <div class="container2">
-    <div>
-      <p>
-        The project's goal is getting students registered to vote, as well as informing people about upcoming elections, the politicians who are running, and what their stances are.
-        A large percentage of the population fails to go out and vote for most elections, meaning that their voices are unheard.
-        People are more likely to go out and vote if they are informed about the elections and what the politicians are campaigning on.
-      </p>
-
-    </div>
-  </div>
-
-  <div id="foots"></div>
-</div>
-</body>
-
+<h2>Info:</h2>
 <p>
-  <%= link_to 'Add election', new_election_path %>
+  This is the main page for the SOLVER Project (Student OnLine Voting Engagement and Registration)
+</p>
+<p>
+  The project's goal is getting students registered to vote, as well as informing people about upcoming elections, the politicians who are running, and what their stances are.
+  A large percentage of the population fails to go out and vote for most elections, meaning that their voices are unheard.
+  People are more likely to go out and vote if they are informed about the elections and what the politicians are campaigning on.
+</p>
+
+  <% if current_user  %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> <!-- if user is signed in-->
+
+  <% else %> <!-- if user isn't signed in-->
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Sign In", new_user_session_path %>
+  <% end %>
 
 
+  <br><br><br>
 <p>
   Click here to see the project's GitHub page:
-  <form action="https://github.com/jbennet-t/SOLVER">
+<form action="https://github.com/jbennet-t/SOLVER">
   <button type="submit">GitHub</button>
-  </form>
+</form>
 </p>
 
 </html>
