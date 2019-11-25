@@ -11,9 +11,9 @@ running, and a summary of their policies. The database will store a list of the 
 
 # How To Install
 
-## Expected Environment
+### Expected Environment
 Windows, Linux, or Mac OS, with at least Ruby 2.6.4 and Ruby on Rails 5.2.3 installed, as well as Git.
-## Installation Instructions:
+### Installation Instructions:
 1.	Open link to above GitHub repository
 2.	Open terminal window
 3.	Navigate to directory you wish to install the repository in
