@@ -9,7 +9,7 @@ upcoming local elections, and the candidates running. The algorithm will fetch t
 running, and a summary of their policies. The database will store a list of the local elections, candidates, and their policies.
 
 
-#How To Install
+# How To Install
 
 ## Expected Environment
 Windows, Linux, or Mac OS, with at least Ruby 2.6.4 and Ruby on Rails 5.2.3 installed, as well as Git.
